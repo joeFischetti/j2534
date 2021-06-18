@@ -238,6 +238,7 @@ long PassThruOpen(const void* pName, unsigned long* pDeviceID)
 	/*
 	 *  Establish a connection with a Pass-Thru device.
 	 */
+	printf("DEBUG: PassThruOpen function");
 	const char* le = getenv("LOG_ENABLE");
 	if (le != NULL)
 	{
