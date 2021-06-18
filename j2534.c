@@ -31,7 +31,7 @@ uint32_t rcvBufIndex = 0;
 int littleEndian;
 #define DELIMITERS " \r\n"
 #define LOGFILE "/data/data/com.termux/files/home/op.log"
-int write_log = 1;	//0 = disabled
+int write_log = 0;	//0 = disabled
 FILE* logfile;
 
 typedef struct _endpoint {
@@ -262,6 +262,8 @@ long PassThruOpen(const void* pName, unsigned long* pDeviceID)
 	con->ctx = NULL;
 	endpoint = malloc(sizeof(Endpoint));
 	lastError = malloc(sizeof(int8_t) * 80);
+
+        libusb_set_option(NULL, LIBUSB_OPTION_WEAK_AUTHORITY);
 
 	int r;
 	r = libusb_init(&con->ctx);
