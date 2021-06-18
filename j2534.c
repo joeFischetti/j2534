@@ -247,6 +247,7 @@ long PassThruOpen(const void* pName, unsigned long* pDeviceID)
 		else
 			write_log = 1;
 			logfile = fopen(LOGFILE, "a");
+			perror("PassThruOpen");
 			writelog("Opening log file...\n\t|");
 
 	}
