@@ -249,6 +249,7 @@ long PassThruOpen(const void* pName, unsigned long* pDeviceID)
 			logfile = fopen(LOGFILE, "a");
 			perror("PassThruOpen");
 			writelog("Opening log file...\n\t|");
+			perror("PassThruOpen");
 
 	}
 	littleEndian = isLittleEndian();
