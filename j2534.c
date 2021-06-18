@@ -300,7 +300,10 @@ long PassThruOpen(const void* pName, unsigned long* pDeviceID)
 //	libusb_set_debug(con->ctx, 3);
 //	con->dev_handle = libusb_open_device_with_vid_pid(con->ctx, VENDOR_ID,
 //			PRODUCT_ID);
-	libusb_wrap_sys_device(con->ctx, "/dev/bus/usb/001/002", con->dev_handle);
+	int fd;
+	sscanf("/dev/bus/usb/001/002", "%d", &fd);
+
+	libusb_wrap_sys_device(con->ctx, (intptr_t) fd, &con->dev_handle);
 
 	if (con->dev_handle == NULL )
 	{
