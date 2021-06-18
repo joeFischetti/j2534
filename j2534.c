@@ -30,7 +30,7 @@ PASSTHRU_MSG msgBuf[8];
 uint32_t rcvBufIndex = 0;
 int littleEndian;
 #define DELIMITERS " \r\n"
-#define LOGFILE "~/op.log"
+#define LOGFILE "/data/data/com.termux/files/home/op.log"
 int write_log = 0;	//0 = disabled
 FILE* logfile;
 
