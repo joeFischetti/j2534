@@ -279,24 +279,26 @@ long PassThruOpen(const void* pName, unsigned long* pDeviceID)
 	}
 
 	libusb_device** devs;
-	int cnt = libusb_get_device_list(con->ctx, &devs);
-	if (cnt < 0)
-	{
-		writelog("\tError getting device list\n");
-		snprintf(lastError, 80, "%s", "Error getting USB device list\0");
-		libusb_exit(con->ctx);
-		free(con);
-		free(endpoint);
-		con = NULL;
-		endpoint = NULL;
-		return 8;
-	}
-	r = get_endpoints(devs, cnt, VENDOR_ID, PRODUCT_ID, endpoint);
-	libusb_free_device_list(devs, 1);
+//	int cnt = libusb_get_device_list(con->ctx, &devs);
+//	if (cnt < 0)
+//	{
+//		writelog("\tError getting device list\n");
+//		snprintf(lastError, 80, "%s", "Error getting USB device list\0");
+//		libusb_exit(con->ctx);
+//		free(con);
+//		free(endpoint);
+//		con = NULL;
+//		endpoint = NULL;
+//		return 8;
+//	}
+//	r = get_endpoints(devs, cnt, VENDOR_ID, PRODUCT_ID, endpoint);
+//	libusb_free_device_list(devs, 1);
+//
+//	libusb_set_debug(con->ctx, 3);
+//	con->dev_handle = libusb_open_device_with_vid_pid(con->ctx, VENDOR_ID,
+//			PRODUCT_ID);
+	libusb_wrap_sys_device(con->ctx, "/dev/bus/usb/001/002", con->dev_handle);
 
-	libusb_set_debug(con->ctx, 3);
-	con->dev_handle = libusb_open_device_with_vid_pid(con->ctx, VENDOR_ID,
-			PRODUCT_ID);
 	if (con->dev_handle == NULL )
 	{
 		writelog("\tCannot open device\n");
