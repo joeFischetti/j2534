@@ -30,7 +30,7 @@ PASSTHRU_MSG msgBuf[8];
 uint32_t rcvBufIndex = 0;
 int littleEndian;
 #define DELIMITERS " \r\n"
-#define LOGFILE "/tmp/op.log"
+#define LOGFILE "~/op.log"
 int write_log = 0;	//0 = disabled
 FILE* logfile;
 
