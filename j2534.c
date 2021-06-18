@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <libusb.h>
+#include <libusb-1.0/libusb.h>
 #include <string.h>
 #include <byteswap.h>
 #include "j2534.h"
